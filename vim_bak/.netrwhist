@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/home/heheahn/turtle/trunk/src/webadmin/resources/js/tmpl/app'
+let g:netrw_dirhist_2='/home/heheahn/turtle/trunk/src/webadmin/resources/js/tmpl/app/extension'
+let g:netrw_dirhist_3='/home/heheahn/turtle/trunk/src/webadmin/resources/js/tmpl/app/extension/grid'
+let g:netrw_dirhist_4='/home/heheahn/turtle/trunk/src/webadmin/resources/js/tmpl/app'
+let g:netrw_dirhist_5='/home/heheahn/turtle/trunk/src/webadmin/resources/js/tmpl/app/extension'
+let g:netrw_dirhist_6='/home/heheahn/turtle/trunk/src/webadmin/resources/js/tmpl/app/extension/form'
