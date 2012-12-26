@@ -1,0 +1,2 @@
+Align.vba: call delete('/home/heheahn/.vim/plugin/AlignPlugin.vim')|call delete('/home/heheahn/.vim/plugin/AlignMapsPlugin.vim')|call delete('/home/heheahn/.vim/plugin/cecutil.vim')|call delete('/home/heheahn/.vim/doc/Align.txt')|call delete('/home/heheahn/.vim/autoload/Align.vim')|call delete('/home/heheahn/.vim/autoload/AlignMaps.vim')
+xmledit-1.9.1.vba: call delete('/home/heheahn/.vim/ftplugin/xml.vim')|call delete('/home/heheahn/.vim/doc/xml-plugin.txt')
