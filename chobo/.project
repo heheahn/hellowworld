@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>src/com/chobo/io/FileCopy.java</name>
+			<type>1</type>
+			<location>/home/heheahn/git/hellowworld/chobo/src/com/chobo/io/FileCopy.java</location>
+		</link>
+	</linkedResources>
 </projectDescription>
