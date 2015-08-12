@@ -98,21 +98,8 @@ fi
 #alias ll='ls -l'
 #alias la='ls -A'
 #alias l='ls -CF'
-#alias tprconf='LD_LIBRARY_PATH=~/turtle/trunk/lib:/usr/turtle-heheahn/lib ~/turtle/trunk/bin/tprconf'
-#alias tgenlic='LD_LIBRARY_PATH=~/turtle/trunk/lib:/usr/turtle-heheahn/lib ~/turtle/trunk/bin/tgenlic'
 
-#alias httpd='LD_LIBRARY_PATH=~/turtle/trunk/lib:/usr/turtle-heheahn/lib ~/turtle/trunk/bin/httpd -s'
-#alias httpdd='LD_LIBRARY_PATH=~/turtle/trunk/lib:/usr/turtle-heheahn/lib ~/turtle/trunk/bin/httpd'
-#alias pm='LD_LIBRARY_PATH=~/turtle/trunk/lib:/usr/turtle-heheahn/lib ~/turtle/trunk/bin/pm'
-
-#alias bpm='LD_LIBRARY_PATH=~/turtle/branches/3.15.x/lib:/usr/turtle-3.15.1-heheahn/lib ~/turtle/branches/3.15.x/bin/pm'
-#alias bhttpd='LD_LIBRARY_PATH=~/turtle/branches/3.15.x/lib:/usr/turtle-3.15.1-heheahn/lib ~/turtle/branches/3.15.x/bin/httpd -s'
-
-#alias khs='LD_LIBRARY_PATH=~/turtle/trunk/lib:/usr/turtle-heheahn/lib ~/turtle/trunk/bin/killhttpd -s'
-#alias killhttpd='LD_LIBRARY_PATH=~/turtle/trunk/lib:/usr/turtle-heheahn/lib ~/turtle/trunk/bin/killhttpd'
-#alias kps='LD_LIBRARY_PATH=~/turtle/trunk/lib:/usr/turtle-heheahn/lib ~/turtle/trunk/bin/killpm -s'
-#alias killpm='LD_LIBRARY_PATH=~/turtle/trunk/lib:/usr/turtle-heheahn/lib ~/turtle/trunk/bin/killpm'
-alias st='git status'
+alias st='svn status | grep -v ?'
 alias mi='make install'
 alias mc='make cleanall'
 alias md='make CONFIG_LIB_DEBUG=y CONFIG_USER_DEBUG=y UOPT=" " CONFIG_INSTALL_NOSTRIP=y SHARED_LIB=no libxt_lall xmsd_ponly'
@@ -120,9 +107,22 @@ alias gdb105='gdb ~/ngsf/romfs/usr/local/6bin/xmsd'
 alias ll='ls -al'
 alias sshdel='rm /home/heheahn/.ssh/known_hosts'
 alias dd64='sudo dd if=./dom64.img of=/dev/sdc'
+alias ssh46='ssh admin@10.101.0.46'
+alias tel46='telnet 10.101.0.253 7009'
 #alias md='make debug'
-alias ssh105='ssh -1 admin@10.200.3.105'
+alias ssh105='ssh admin@10.200.3.105'
 alias gvim='gvim -f'
+alias app='cd ~/nexgfw/trunk/components/apps/web2py/src/applications/nexgfw/static/js/extjs/app'
+alias web='cd ~/nexgfw/trunk/components/apps/web2py'
+alias nexg='cd ~/nexgfw/trunk/components/apps/web2py/src/applications/nexgfw'
+alias web2py='python ~/nexgfw/trunk/components/apps/web2py/src/web2py.py'
+alias webmake='web;make test;cd ~/nexgfw/trunk;make image'
+alias comweb='web;make test;cd ~/nexgfw/trunk/work/rfs/usr/local;tar cvf a.tar web2py;mv a.tar ~'
+
+alias nexgfw0='cd ~/nexgfw/branches/R0_20150209 && . set_env.rc NFX'
+alias web0='nexgfw0;cd ~/nexgfw/branches/R0_20150209/components/apps/web2py'
+alias comweb0='web0;make test;cd ~/nexgfw/branches/R0_20150209/work/rfs/usr/local;tar cvf a.tar web2py;mv a.tar ~'
+alias home='cd ~/nexgfw/trunk'
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -131,7 +131,7 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
-export CDPATH=.:..:$HOME:$HOME/ngsf:$HOME/ngsf/COMPONENTS:$HOME/ngsf/COMPONENTS/management:$HOME/ngsf/COMPONENTS/management/xms:$HOME/turtle/trunk/src/webadmin:$HOME/turtle/trunk/src/pm:$HOME/turtle/trunk/src/webadmin/resources/js/tmpl/app:$HOME/turtle/trunk/src/webadmin/resources/js/:
+export CDPATH=.:..:$HOME:$HOME/ngsf/src:$HOME/ngsf/src/COMPONENTS:$HOME/ngsf/src/COMPONENTS/management:$HOME/ngsf/src/COMPONENTS/management/xms:
 #export PATH=$PATH:$HOME/turtle/trunk/bin:
 
 # set a fancy prompt (non-color, unless we know we "want" color)
@@ -155,3 +155,12 @@ RTE_SDK=/opt/6WIND/contrib/473333_DPDK.L.1.1.0_27-v1.7
 RTE_TARGET=x86_64-default-linuxapp-gcc
 PATH=/opt/6WIND/contrib/toolchain/gcc-4.4.6-eglibc-2.15/x86_64-eglibc_2_15_gcc_4_4_6-linux-gnu/bin:$PATH
 export PATH RTE_SDK RTE_TARGET
+
+JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64"
+export PATH=${JAVA_HOME}/bin:$PATH
+
+export SENCHA_CMD_3_0_0="/home/heheahn/bin/Sencha/Cmd/4.0.5.87"
+
+cd ~/nexgfw/trunk && . set_env.rc NFX && cd
+
+export PATH=/home/heheahn/bin/Sencha/Cmd/4.0.5.87:$PATH

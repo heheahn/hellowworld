@@ -44,7 +44,8 @@ set expandtab
 set shiftround
 set def=^\\s*#\\s*define
 set inc=^\\s*#\\s*include
-set tag=./tags,~/.vim/tags/cpp,~/.vim/tags/gl,~/ngsf/COMPONENTS/management/tags,~/ngsf/COMPONENTS/misc/libxml2/tags,~/turtle/trunk/libsrc/tags
+set tag=./tags,~/.vim/tags/cpp,~/.vim/tags/gl,
+set tags+=~/.vim/tags/c
 set tags+=~/.vim/tags/cpp
 set tags+=~/.vim/tags/gl
 set cscopetag
