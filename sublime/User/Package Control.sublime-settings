@@ -1,0 +1,20 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"AdvancedNewFile",
+		"BracketHighlighter",
+		"DocBlockr",
+		"Emmet",
+		"Flask Completions",
+		"Jinja2",
+		"Package Control",
+		"SublimeCodeIntel",
+		"SublimeLinter",
+		"SublimeREPL",
+		"Theme - Soda"
+	]
+}
