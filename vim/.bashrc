@@ -107,21 +107,21 @@ alias gdb105='gdb ~/ngsf/romfs/usr/local/6bin/xmsd'
 alias ll='ls -al'
 alias sshdel='rm /home/heheahn/.ssh/known_hosts'
 alias dd64='sudo dd if=./dom64.img of=/dev/sdc'
-alias ssh46='ssh admin@10.101.0.46'
-alias tel46='telnet 10.101.0.253 7009'
-#alias md='make debug'
-alias ssh105='ssh admin@10.200.3.105'
+alias ssh210='ssh admin@10.101.0.210'
+alias tel46='telnet 10.101.0.251 5007'
 alias gvim='gvim -f'
 alias app='cd ~/nexgfw/trunk/components/apps/web2py/src/applications/nexgfw/static/js/extjs/app'
 alias web='cd ~/nexgfw/trunk/components/apps/web2py'
 alias nexg='cd ~/nexgfw/trunk/components/apps/web2py/src/applications/nexgfw'
-alias web2py='python ~/nexgfw/trunk/components/apps/web2py/src/web2py.py'
+alias web2py='python ~/nexgfw/trunk/components/apps/web2py/src/web2py.py -a 111'
 alias webmake='web;make test;cd ~/nexgfw/trunk;make image'
-alias comweb='web;make test;cd ~/nexgfw/trunk/work/rfs/usr/local;tar cvf a.tar web2py;mv a.tar ~'
+alias comweb='web;make test;cd ~/nexgfw/trunk/work/rfs/usr/local;cp ~/nexgfw/trunk/components/libs/libdncrypto/dn_crypto.py ~/nexgfw/trunk/work/rfs/usr/local/web2py/applications/nexgfw/modules/;tar cvf a.tar web2py;mv a.tar ~/share'
 
-alias nexgfw0='cd ~/nexgfw/branches/R0_20150209 && . set_env.rc NFX'
-alias web0='nexgfw0;cd ~/nexgfw/branches/R0_20150209/components/apps/web2py'
-alias comweb0='web0;make test;cd ~/nexgfw/branches/R0_20150209/work/rfs/usr/local;tar cvf a.tar web2py;mv a.tar ~'
+alias nexgfwb='cd ~/nexgfw/branches/BR1.0.1507.0_R1 && . set_env.rc NFX'
+alias webb='cd ~/nexgfw/branches/BR1.0.1507.0_R1/components/apps/web2py'
+alias appb='cd ~/nexgfw/branches/BR1.0.1507.0_R1/components/apps/web2py/src/applications/nexgfw/static/js/extjs/app'
+alias nexgb='cd ~/nexgfw/branches/BR1.0.1507.0_R1/components/apps/web2py/src/applications/nexgfw'
+alias comwebb='webb;make test;cd ~/nexgfw/branches/BR1.0.1507.0_R1/work/rfs/usr/local;tar cvf a.tar web2py;mv a.tar ~'
 alias home='cd ~/nexgfw/trunk'
 
 # enable programmable completion features (you don't need to enable
@@ -159,8 +159,14 @@ export PATH RTE_SDK RTE_TARGET
 JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64"
 export PATH=${JAVA_HOME}/bin:$PATH
 
-export SENCHA_CMD_3_0_0="/home/heheahn/bin/Sencha/Cmd/4.0.5.87"
 
-cd ~/nexgfw/trunk && . set_env.rc NFX && cd
+cd ~/nexgfw/trunk && . set_env.rc ENFX && cd
+
+export NODE_ENV=development
+export AWS_REGION=ap-northeast-2
+export FW_REMOTE='10.101.0.212:8080'
+export PATH="/home/heheahn/bin/Sencha/Cmd:$PATH"
 
 export PATH=/home/heheahn/bin/Sencha/Cmd/4.0.5.87:$PATH
+
+export SENCHA_CMD_3_0_0="/home/heheahn/bin/Sencha/Cmd/4.0.5.87"
