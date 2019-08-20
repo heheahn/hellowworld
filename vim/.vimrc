@@ -1,7 +1,30 @@
 set nocompatible
-call pathogen#helptags()
-"call pathogen#runtime_append_all_bundles()
-call pathogen#infect()
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'vim-scripts/indentpython.vim'
+Bundle 'Valloric/YouCompleteMe'
+"Plugin 'scrooloose/syntastic'
+Plugin 'nvie/vim-flake8'
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'kien/ctrlp.vim'
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'posva/vim-vue'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'VisIncr'
+Plugin 'othree/html5.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'wesQ3/vim-windowswap'
+
+" All of your Plugins must be added before the following line
+call vundle#end()
+
 let mapleader = ","
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
@@ -36,8 +59,11 @@ syntax on
 filetype on
 filetype plugin on
 filetype plugin indent on
-autocmd filetype python setlocal sw=2 sts=2 et
+autocmd filetype python setlocal sw=4 sts=4 et
 autocmd filetype javascript setlocal sw=2 sts=2 et
+"autocmd FileType vue syntax sync fromstart
+autocmd BufRead,BufNewFile *.vue set filetype=html.javascript
+"autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.javascript.html.css
 set list listchars=tab:»›,trail:·
 "set listchars=tab:>.,trail:.,extends:#,nbsp:.
 "autocmd filetype html,xml set listchars-=tab:>.
@@ -50,21 +76,9 @@ map! <S-Insert> <MiddleMouse>
 set guifont=Terminus\ 10
 set cursorline
 set t_Co=256
-colorscheme xoria256
+"colorscheme xoria256
+colorscheme apprentice
 set autochdir
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-    let g:syntastic_quiet_messages = {
-        \ "!level":  "errors",
-        \ "type":    "style",
-        \ "regex":   '\m\[E111\]' }
 
 
 set encoding=utf-8
@@ -76,6 +90,18 @@ set wildmode=list:longest
 set ttyfast
 set ruler
 set laststatus=2
+set clipboard=unnamed
+set complete=.,w,b,u,t,i
+
+set timeoutlen=1000
+set ttimeoutlen=0
+
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+" Enable folding with the spacebar
+nnoremap <space> za
 
 map <silent> <leader>c : !cd ~/nexgfw/trunk/components/apps/web2py;make test;cd ~/nexgfw/trunk/work/rfs/usr/local;cp ~/nexgfw/trunk/components/libs/libdncrypto/dn_crypto.py ~/nexgfw/trunk/work/rfs/usr/local/web2py/applications/nexgfw/modules/;tar cvf a.tar web2py;mv a.tar ~/share<CR>
 
@@ -83,95 +109,46 @@ map <silent> <leader>c : !cd ~/nexgfw/trunk/components/apps/web2py;make test;cd 
 "set nocp
 "let s:cpo_save=&cpo
 "let OmniCpp_NamespaceSearch = 2
-"set tags=./.TAGS,./.tags,~/tags/cpptags
-"nmap gx <Plug>NetrwBrowseX
-"nnoremap <silent> <Plug>NetrwBrowseX :call netrw#NetBrowseX(expand("<cWORD>"),0)
-"let &cpo=s:cpo_save
-"unlet s:cpo_save
-"runtime! ftplugin/man.vim
-"set autochdir
-"set background=dark
-"set fileencodings=ucs-bom,utf-8,default,euc-kr,latin1
-"set nobomb
-"set guifont=Terminus\ Bitstream\ Vera\ Sans\ Mono\ 9
-"set helplang=ko
-"set history=50
-"set nomodeline
-"set mouse=a
-"set printoptions=paper:a4
-"set ruler
-"set runtimepath=~/.vim,/usr/share/vim/vimfiles,/usr/share/vim/vim72,/var/lib/vim/addons/after,~/.vim/after,~/turtle/trunk/include/turtle,~/turtle/trunk/src/pm,~/turtle/trunk/src/webadmin
-"set path=.,~/.vim/tags/cpp_src
-"set shiftwidth=2
-"set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
-"set termencoding=utf-8
-"set viminfo='20,\"50
-"set incsearch
-"set nu
-"set smarttab
-"set expandtab
-"set smartcase
-"set shiftround
-"set def=^\\s*#\\s*define
-"set inc=^\\s*#\\s*include
-"set tag=./tags,~/.vim/tags/cpp,~/.vim/tags/gl,
-"set tags+=~/.vim/tags/c
-"set tags+=~/.vim/tags/cpp
-"set tags+=~/.vim/tags/gl
-"set cscopetag
-"set csprg=cscope
-"set scr=10
-"set nf=octal,hex
-"set cinoptions=>s:0=s(0W4g0hsi2st0
-"set cindent
-"set ignorecase
-"set fen
-"set foldlevel=2
-"set dir=~/.vim.tmp
-"set backupdir=~/.vim.backup
-"set hls
-"set list listchars=tab:»›,trail:·
-"set makeprg=(cd\ `git\ rev-parse\ --show-toplevel`;make\ xmsd_pmake)
-"autocmd FileType c,idl,cpp,java,php,xml autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
-"set color=murphy
-" vim: set ft=vim :
-"autocmd BufWritePre * :%s/\s\+$//e
-"func! Sts()
-  "let st = expand("<cword>")
-  "exe "sts ".st
-"endfunc
-"nmap ,st : call Sts() <cr>
-
-"set textwidth=120
-" turn syntax highlighting on
-"set t_Co=256
-"colorscheme wormbat
-" turn line numbers on
-"set number
-" highlight matching braces
-"set showmatch
-" intelligent comments
-"set comments=sl:/*,mb:\ *,elx:\ */
-let g:DoxygenToolkit_authorName="Gerhard Gappmeier <gerhard.gappmeier@ascolab.com>"
+set tags=./.TAGS,./tags,~/tags,~/xios/linux/embedded_rootfs/tags
 
 " recreate tags file with 8F
-"map <C-F8> :!ctags -R --c++-kinds=+pl --fields=+iaS --extra=+q .<CR>
+map <C-F8> :!ctags -R --c++-kinds=+pl --fields=+iaS --extra=+q .<CR>
 "map <C-F12> :!make;make install .<CR>
 "map <C-F11> :!cd ~/turtle/trunk/src/webadmin/resources;make install .<CR>
 " create doxygen comment
-map <F7> :Dox<CR>
-" goto definition with F8
-"map <F6> :!cd ~/ngsf;make cli_pmake .<CR>
-"map <F7> :!cd ~/ngsf;make xmsd_pmake .<CR>
-"map <C-F6> :!cd ~/ngsf;make cli_ponly .<CR>
-"map <C-F7> :!cd ~/ngsf;make xmsd_ponly .<CR>
-"map <F8> <C-]>
-"map <F9> <C-T>
+map <F6> :Dox<CR>
+map <F8> <C-]>
+map <F9> <C-T>
+
+let python_highlight_all=1
+let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
 
-"set foldmethod=indent
-"set foldlevel=99
-"map <leader>td <Plug>TaskList
-"map <leader>g :GundoToggle<CR>
-"let g:pyflakes_use_quickfix = 0
-"filetype off
+let g:DoxygenToolkit_authorName="Gerhard Gappmeier <gerhard.gappmeier@ascolab.com>"
+
+let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_collect_identifiers_from_tags_files = 1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+let g:UltiSnipsExpandTrigger = "<C-j>"
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+"let g:flake8_show_in_gutter=1
+"let g:flake8_show_quickfix=0
+let g:flake8_show_in_file=1   " show
+autocmd FileType python map <buffer> <F7> :call Flake8()<CR>
+" autocmd BufWritePost *.py call Flake8()
+
+let g:ctrlp_root_markers = ['.ctrlp']
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.?(git|hg|svn|node_modules|gens)$',
+  \ 'file': '\v\.(exe|so|c|cc|h|o)$',
+  \ }
